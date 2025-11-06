@@ -1,0 +1,59 @@
+// @import 'common'; 얘는 구식
+@use 'common' as *;
+// layout.scss레이아웃
+
+$ani_time:0.3s;
+$box_center:0 auto;
+//header
+header{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 70px;
+  z-index: 1000;
+  transition: $ani_time;
+  >h1{
+    padding: 24px 0px 0px 2%;
+  }
+  >.nav_icon{
+    width: 40px;
+    position: absolute;
+    top: 24px;
+  }
+  .nav_icon span:last-child{
+    display: none;
+  }
+  >.nav_icon span.fas{
+    font-size: $t_size_t1;
+    color: $txt_color2;
+    cursor: pointer;
+  }
+  > .icon1{right: 40px;}
+  > .icon2{right: 5px;}
+}
+
+// 메인메뉴 서식
+header nav{
+  width: 600px;
+  margin: -24px auto;
+  // transform: translateY(-24px);
+}
+header nav .gnb{
+  display: flex;
+  justify-content: space-around;
+}
+header nav .gnb a{
+  color: $txt_color2;
+  font-size: $t_size_m;
+}
+header nav .gnb a:hover{
+  text-decoration: underline;
+}
+
+
+//footer
+footer{
+  background-color: $bg_color_g;
+  height:177px;
+}
