@@ -33,11 +33,11 @@
 
     <nav>
       <ul class="gnb">
-        <li><a href="#intro" title="소개">소개</a></li>
-        <li><a href="#test_drive" title="체험">체험</a></li>
-        <li><a href="#event" title="이벤트">이벤트</a></li>
-        <li><a href="#buy_info" title="구매">구매</a></li>
-        <li><a href="#customer" title="고객지원">고객지원</a></li>
+        <li><a href="#intro" title="소개" class="arctic_scroll">소개</a></li>
+        <li><a href="#test_drive" title="체험" class="arctic_scroll">체험</a></li>
+        <li><a href="#event" title="이벤트" class="arctic_scroll">이벤트</a></li>
+        <li><a href="#buy_info" title="구매" class="arctic_scroll">구매</a></li>
+        <li><a href="#customer" title="고객지원" class="arctic_scroll">고객지원</a></li>
       </ul>
     </nav>
 
@@ -54,24 +54,23 @@
       알림
       </span>
     </div>
-
-    <!-- 오른쪽 고정 내비게이션 -->
-    <nav id="m_nav">
-      <ul>
-        <li><span class="num">1</span><a href="#intro" title="소개">소개</a></li>
-        <li><span class="num">2</span><a href="#test_drive" title="체험">체험</a></li>
-        <li><span class="num">3</span><a href="#event" title="이벤트">이벤트</a></li>
-        <li><span class="num">4</span><a href="#buy_info" title="구매">구매</a></li>
-        <li><span class="num">5</span><a href="#customer" title="고객지원">고객지원</a></li>
-      </ul>
-    </nav>
   </header>
+  <!-- 오른쪽 고정 내비게이션 (헤더안에 있으면 사이드 내비 영역 오버시에도 헤더 스크립트 작동)-->
+  <nav id="m_nav">
+    <ul>
+      <li><span class="num">1</span><a href="#intro" title="소개" class="artic_scroll">소개</a></li>
+      <li><span class="num">2</span><a href="#test_drive" title="체험" class="artic_scroll">체험</a></li>
+      <li><span class="num">3</span><a href="#event" title="이벤트" class="artic_scroll">이벤트</a></li>
+      <li><span class="num">4</span><a href="#buy" title="구매" class="artic_scroll">구매</a></li>
+      <li><span class="num">5</span><a href="#customer" title="고객지원" class="artic_scroll">고객지원</a></li>
+    </ul>
+  </nav>
 
   <!-- 메인콘텐츠 영역 시작 -->
   <main>
     <!-- 1. 자동차 소개영상 컨텐츠 -->
     <section id="movie">
-      <video muted autoplay loop controls>
+      <video muted autoplay loop>
         <source src="./images/main_KV.webm" type="video/webm" >
       </video>
     </section>
@@ -128,24 +127,48 @@
 
       <address>
         <dl>
-          <dt>사업자 등록 번호 : </dt><dd>000-000-00000</dd>
-          <dt>통신판매업신고번호 : </dt><dd>000-000-00000</dd>
-          <dt>대표이사 : </dt><dd>000</dd>
-          <dt>주소 : </dt><dd>서울시 서초구 헌릉로 00</dd>
-          <dt>호스팅서비스 제공 : </dt><dd>00000000</dd>
+          <dt>사업자 등록 번호 : </dt><dd> 000-000-00000</dd>
+          <dt>통신판매업신고번호 : </dt><dd> 000-000-00000</dd>
+          <dt>대표이사 : </dt><dd> 000</dd>
+          <dt>캐스퍼 고객센터 : </dt><dd> 080-5000-600</dd>
+          <dt>주소 : </dt><dd> 서울시 서초구 헌릉로 00</dd>
+          <dt>호스팅서비스 제공 : </dt><dd> 00000000</dd>
         </dl>
         <p>Copyright&copy;2025 hyundai motor company, all rights reserved.</p>
       </address>
     </div>
   </footer>
-
+  <!-- 스크롤 이벤트 스크립트 -->
+  <script src="./script/jquery.arctic_scroll.js"></script>
+  <!-- 
+    arctic_scroll 스크립트
+    1.메뉴 a 태그에 herf=#id명 class="artic_scroll" 설정
+    2. 페이지 하단에  script 파일 연결
+    3. script안에 속도값 스크립트 작성함 .
+          $("arctic_scroll").arctic_scroll({
+        speed:800
+      });
+  -->
   <!-- 제이쿼리 -->
+  <!-- 제이쿼리 쿠리 라이브러리 연결 -->
+  <script src="./script/jquery.cookie.js"></script>
   <script>
     $(document).ready(function(){
       // 1. 변수선언 
       let h1 = $('header h1 img');
       let gnb = $('.gnb a');
       let h_icon = $('header span.fas');
+      let m_nav = $('#m_nav > ul li');
+      // 모달 닫기 버튼 변수
+      const c_btn = $('.modal #c_btn');//닫기버튼 변수
+      let ch = $('#ch');//체크박스 변수
+
+      // m_nav에 마우스 오버시 가로길이 늘리기
+      m_nav.hover(function(){
+        $(this).addClass('m_nav_on');
+      },function(){
+        $(this).removeClass('m_nav_on');
+      })
 
       //2. 사용자가 헤더영역에 마우스 오버시
       $('header').mouseenter(function(){
@@ -163,7 +186,7 @@
 
         // 3.헤더 영역에 마우스 아웃시
         // 3개 변수값에 .h_txt_color서식을 제거
-        gnb.removeClass('.h_txt_color');
+        gnb.removeClass('h_txt_color');
         
         // 헤더에도 .h_con을 제거
         $(this).removeClass('h_on');
@@ -174,7 +197,54 @@
         h1.attr('src','./images/logo-casper-white.png');
       });
 
+      //메뉴 클릭시 해당 콘텐츠 이동 부드럽게 하기
+      $("arctic_scroll").arctic_scroll({
+        speed:800
+      });
+
+      // 모달변수
+      const modal =
+      `
+      <div class="modal">
+      <div class="m_inner">
+      <a href="#" title="">
+        <img src="./images/pc_prod_notice_20211210.jpg" alt="광고이미지">
+      </a>
+      <p class="btn_area">
+        <input type="checkbox" name="" id="ch"><label for="ch">오늘 하루 창 열지 않음</label>
+        <input type="button" value="닫기" id="c_btn">
+      </p>
+    </div>
+  </div>
+      `
+    // 모달 나오게 하기
+    $('body').append(modal);
+
+    // 만약에 쿠키파일이 존재 한다면 모달 윈도 나오지 않게 한다.
+    if($.cookie('popup')=='none'){
+      $('.modal').hide();
+    }
+
+    // 닫기 버튼 클릭시 체크박스에 체크여부를 판단하여 체크되었으면 쿠키 생성
+    $('.modal #ch, .modal #c_btn').click(function(){
+      closePopup();
     });
+    function closePopup(){
+      if(ch.is(':checked')){//체크박스가 체크가 되면
+        // 쿠키를 생성하고 저장
+        $.cookie('popup','none',{expires:1, path:'/'})
+        //쿠키파일 저장
+        $('.modal').fadeOut();//모달윈도 사라지게 하기
+      }else{
+        // 체크박스에 체크를 하지 않은 경우라면 그냥 모달 윈도 닫기
+        $('.modal').fadeOut();
+      }
+    };
+
+
+
+    });
+
   </script>
 </body>
 </html>

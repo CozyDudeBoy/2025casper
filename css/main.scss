@@ -1,0 +1,80 @@
+// @import 'common'; 얘는 구식
+@use 'common' as *;
+// main.scss
+
+// body, html{ 화면 부드럽게 
+//   scroll-behavior: smooth;
+// }
+
+main{
+  overflow: hidden;
+  clear: both;//header 영역에서 혹시 사용된 float속성이 있다면 float 속성 해제 한다
+
+  > #movie{
+    height: 100vh;
+    background-color: $line_color_g;
+    > video{
+      width: 100%;
+
+    }
+  }
+  > #top3{
+    height: 1146px;
+    background-color: #123;
+  }
+  > #intro{
+    height: 923px;
+    background-color: aqua;
+  }
+  > #test_drive{
+    height: 923px;
+    background-color: navy;
+  }
+  > #event{
+    height: 923px;
+    background-color: purple;
+  }
+  > #buy{
+    height: 923px;
+    background-color: bisque;
+  }
+  > #customer{
+    height: 923px;
+    background-color: violet;
+  }
+}
+
+.modal{
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .7);
+  z-index: 999999;
+  img{
+    display: block;
+    width: 100%;
+  }
+  > .m_inner{
+    width: 350px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    > .btn_area{
+      margin: 0;
+      line-height: 50px;
+      background-color: $txt_color2;
+      > #c_btn{
+        width: 50px;
+        height: 30px;
+        position: absolute;
+        bottom: 10px;
+        right: 20px;
+        background-color: $txt_color2;
+        border: none;
+      }
+    }
+  }
+
+}
