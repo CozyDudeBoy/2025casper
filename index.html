@@ -18,6 +18,9 @@
   <script src="https://code.jquery.com/jquery-latest.min.js"></script>
   <!-- 제이쿼리 쿠키 -->
   <script src="./script/jquery.cookie.js"></script>
+  <!-- 스와이퍼 슬라이드 css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
   <style>
 
   </style>
@@ -70,39 +73,97 @@
   <main>
     <!-- 1. 자동차 소개영상 컨텐츠 -->
     <section id="movie">
+      <article class="m_info">
+        <h2>casper</h2>
+        <p>오직 캐스퍼 온라인에서만 구매하실 수 있습니다.</p>
+        <a href="https://casper.hyundai.com/vehicles/making/model" title="나만의 캐스퍼 만들기"> 나만의 캐스퍼 만들기</a>
+        <a href="https://casper.hyundai.com/vehicles/benefit" title="구매 혜택보기">구매 혜택보기</a>
+        <a href="https://casper.hyundai.com/vehicles/highlight" title="자세히 보기"> 자세히 보기</a>
+      </article>
       <video muted autoplay loop>
         <source src="./images/main_KV.webm" type="video/webm" >
       </video>
+
+      <a href="#top3" class="artic_scroll" id="next_btn">다음 페이지</a>
     </section>
 
     <!-- 2.가장 많이 찾는 캐스퍼 top3 -->
     <section id="top3">
+      <h2 class="m_title">가장 많이 찾는 캐스퍼</h2>
+      <p class="p01">지금 가장 인기 있는 조합을 확인해 보세요.</p>
 
+      <!-- 스와이퍼 슬라이드 -->
+      <div class="swiper top3">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <span class="rank">1위</span>
+            <h3 class="top3_title">가솔린 1.0 터보 인스퍼레이션</h3>
+            <img src="./images/color_khaki.02b812c.png" alt="카키">
+            <ul class="detail">
+              <li><span class="out_color kaki">카키</span>외장 색상<br>톰보이 카키</li>
+              <li><span class="inner_color black">블랙</span>내장 색상<br>블랙</li>
+              <li>선택품목 <br> 캐스퍼 액티브 ll</li>
+              <li><em class="price">18,700,000</em>원</li>
+            </ul>
+            <input type="button" value="견적내기 &gt;" class="btn b_btn">
+          </div>
+          <div class="swiper-slide">
+            <span class="rank">2위</span>
+            <h3 class="top3_title">가솔린 The Essential</h3>
+            <img src="./images/color_white.bebc88b.png" alt="화이트">
+            <ul class="detail">
+              <li><span class="out_color white">화이트</span>외장 색상<br>톰보이 화이트</li>
+              <li><span class="inner_color black">블랙</span>내장 색상<br>블랙</li>
+              <li>선택품목 <br> 캐스퍼 액티브 ll</li>
+              <li><em class="price">16,900,000</em>원</li>
+            </ul>
+            <input type="button" value="견적내기 &gt;" class="btn b_btn">
+          </div>
+          <div class="swiper-slide">
+            <span class="rank">3위</span>
+            <h3 class="top3_title">가솔린 1.0 디 에센셜 라이트</h3>
+            <img src="./images/color_orange.0c6edb3.png" alt="오렌지">
+            <ul class="detail">
+              <li><span class="out_color orange">오렌지</span>외장 색상<br></li>
+              <li><span class="inner_color black">블랙</span>내장 색상<br>블랙</li>
+              <li>선택품목 <br> 캐스퍼 액티브 ll</li>
+              <li><em class="price">14,900,000</em>원</li>
+            </ul>
+            <input type="button" value="견적내기 &gt;" class="btn b_btn">
+          </div>
+        </div>
+        <!-- 컨트롤 버튼 -->
+        <div class="swiper-pagination"></div>
+
+        <!-- 좌, 우버튼 -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
     </section>
 
     <!-- 3. 소개 페이지 -->
     <section id="intro">
-
+      <h2 class="m_title">소개</h2>
     </section>
 
     <!-- 4. 시승 신청 -->
     <section id="test_drive">
-
+      <h2 class="m_title">시승신청</h2>
     </section>
 
     <!-- 5. 이벤트-->
     <section id="event">
-
+      <h2 class="m_title">이벤트 &amp;프로모션</h2>
     </section>
 
     <!-- 6. 구매하기 -->
     <section id="buy">
-
+      <h2 class="m_title">캐스퍼 구매</h2>
     </section>
 
     <!-- 7. 고객지원 -->
     <section id="customer">
-
+      <h2 class="m_title">고객 지원</h2>
     </section>
 
   </main>
@@ -152,6 +213,9 @@
   <!-- 제이쿼리 -->
   <!-- 제이쿼리 쿠리 라이브러리 연결 -->
   <script src="./script/jquery.cookie.js"></script>
+  <!-- 스와이퍼 슬라이드 js -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
   <script>
     $(document).ready(function(){
       // 1. 변수선언 
@@ -229,8 +293,11 @@
     $('.modal #ch, .modal #c_btn').click(function(){
       closePopup();
     });
+
+    
+      let $ch = $('.modal #ch'); //체크박스 변수선언하기
     function closePopup(){
-      if(ch.is(':checked')){//체크박스가 체크가 되면
+      if($ch.is(':checked')){//체크박스가 체크가 되면
         // 쿠키를 생성하고 저장
         $.cookie('popup','none',{expires:1, path:'/'})
         //쿠키파일 저장
@@ -241,10 +308,96 @@
       }
     };
 
+    /*윈도우 스크롤 이벤트*/
+    $(window).scroll(function(){
+      let sPos = $(this).scrollTop();//새로 스크롤 값을 구함
+      console.log(sPos); //콘솔 모드로 스크롤 값 출력
+
+      if(sPos>=1000){
+        // 3개변수값에 .h_txt_color서식을 추가
+        gnb.addClass('h_txt_color');
+
+        // 아이콘 색상 변경
+        h_icon.addClass('h_txt_color');
+
+        // 헤더에도 .h_on을 추가
+        $('header').addClass('h_on');
+
+        // 로고 이미지속성 src 값 변경 체인지 
+        h1.attr('src','./images/logo-casper_black.png');
+
+        // 마우스 오버시 검정로고, 메뉴색, 아이콘 색 어둡게
+        // 이미 헤더에서 마우스 오버, 아웃때 서식 적용 작성해놔서 그대로 가져와 한번 더 활용
+              $('header').mouseleave(function(){
+        // 3개변수값에 .h_txt_color서식을 추가
+        gnb.addClass('h_txt_color');
+        // 아이콘 색상 변경
+        h_icon.addClass('h_txt_color');
+        // 헤더에도 .h_on을 추가
+        $(this).addClass('h_on');
+        // 로고 이미지속성 src 값 변경 체인지 
+        h1.attr('src','./images/logo-casper_black.png');
+      });
+
+      }else{ //스크롤이 다시 올라가면 
+
+        // 3.헤더 영역에 마우스 아웃시
+        // 3개 변수값에 .h_txt_color서식을 제거
+        gnb.removeClass('h_txt_color');
+        
+        // 헤더에도 .h_con을 제거
+        $('header').removeClass('h_on');
+        // 아이콘 색상 제거
+        h_icon.removeClass('h_txt_color');
+
+        // 로고 이미지속성 src 값 변경 체인지 
+        h1.attr('src','./images/logo-casper-white.png');
+
+        // 마우스 오버시 검정로고, 메뉴색, 아이콘 색 어둡게
+        // 이미 헤더에서 마우스 오버, 아웃때 서식 적용 작성해놔서 그대로 가져와 한번 더 활용
+      $('header').mouseleave(function(){
+
+        // 3.헤더 영역에 마우스 아웃시
+        // 3개 변수값에 .h_txt_color서식을 제거
+        gnb.removeClass('h_txt_color');
+        
+        // 헤더에도 .h_con을 제거
+        $(this).removeClass('h_on');
+        // 아이콘 색상 제거
+        h_icon.removeClass('h_txt_color');
+
+        // 로고 이미지속성 src 값 변경 체인지 
+        h1.attr('src','./images/logo-casper-white.png');
+      });
+        
+      }
+        
+      
+    });
 
 
     });
 
+  </script>
+    <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".top3", {
+      autoplay:{
+        delay:3000,
+        disableOnInteraction: false,
+      },
+      loop:true, //무한반복
+      navigation:{
+        nextEl:".top3 .swiper-button-next",
+        prevEl:".top3 .swiper-button-prev"
+      },
+      pagination:{
+        el: ".swiper-pagination",
+      },
+
+
+      
+    });
   </script>
 </body>
 </html>
