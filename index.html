@@ -144,16 +144,74 @@
     <!-- 3. 소개 페이지 -->
     <section id="intro">
       <h2 class="m_title">소개</h2>
+      <span class="intro_title_left">강인하고 <br>아이코닉한 SUV</span>
+      <span class="intro_title_right">젊고 역동적인 <br>감성의 SUV 디자인</span>
+      <video autoplay muted>
+        <source src="./images/highlight_intro.mp4" type="video/mp4">
+      </video>
+      <a href="detail.html" title="더보기" value="더보기 &gt;" class="btn b_btn">더보기</a>
     </section>
 
     <!-- 4. 시승 신청 -->
     <section id="test_drive">
       <h2 class="m_title">시승신청</h2>
+      <p class="p01">캐스퍼가 제공하는 편리한 시승 서비스를 이용해보세요</p>
+
+      <article class="test_drive_l">
+        <h3>현대자동차 드라이빙 라운지 <br> /CASPER STUDIO 시승</h3>
+        <p>드라이빙 라운지와 CASPER STUDIOD에서 <br>캐스퍼를 체험해 보세요
+        </p>
+        <a href="./php/test_drive.php" title="시승 신청하기" class="test_d_btn1">시승 신청하기</a>
+        <a href="./php/test_drive_print.php" title="시승 신청조회" class="test_d_btn2">시승 신청조회 <span>
+          &#x003E;
+        </span></a>
+        <p class="test_d_p">&middot; 시승 신청은 만 21세 이상 운전면허 소지자면 누구나 이용 가능합니다.</p>
+      </article>
+
+      <article class="test_drive_r">
+        <h3>쏘카 <br>카쉐어링 시승</h3>
+        <p>24시간 언제나 내 근처에서 편리하게 <br>캐스퍼를 체험할 수 있습니다.</p>
+        <a href="./php/test_drive.php" title="시승신청하기" class="test_d_btn1"> 시승 신청하기</a>
+        <p class="test_d_p">&middot; 쏘카는 만 21세 이상, 운전면허 취득 1년 이상 시 이용할 수 있습니다</p>
+      </article>
     </section>
 
     <!-- 5. 이벤트-->
     <section id="event">
       <h2 class="m_title">이벤트 &amp;프로모션</h2>
+      <p class="p01">다양한 &amp;이벤트 프로모션과 함께 캐스퍼를 만나보세요</p>
+
+      <!-- 이벤트 슬라이드 -->
+      <div class="swiper event">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a href="#" title="이벤트1">
+              <img src="./images/event01.png" alt="이벤트1">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#" title="이벤트2">
+              <img src="./images/event02.jpg" alt="이벤트2">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#" title="이벤트3">
+              <img src="./images/event03.jpg" alt="이벤트3">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#" title="이벤트4">
+              <img src="./images/event04.jpg" alt="이벤트4">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#" title="이벤트5">
+              <img src="./images/event05.jpg" alt="이벤트5">
+            </a>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
     </section>
 
     <!-- 6. 구매하기 -->
@@ -371,7 +429,11 @@
       });
         
       }
-        
+      // 화면 세로 스크롤 값이 2000px 이상일 경우 양쪽 텍스트가 날라온다
+      if(sPos>=2000){
+        $('.intro_title_left').animate({'left':'130px'},500);
+        $('.intro_title_right').delay(500).animate({'right':'150px'},500);
+      }
       
     });
 
@@ -394,9 +456,21 @@
       pagination:{
         el: ".swiper-pagination",
       },
+    });
 
-
-      
+        var swiper = new Swiper(".event", {
+      autoplay:{
+        delay:3000,
+        disableOnInteraction: false,
+      },
+      loop:true, //무한반복
+      navigation:{
+        nextEl:".top3 .swiper-button-next",
+        prevEl:".top3 .swiper-button-prev"
+      },
+      pagination:{
+        el: ".swiper-pagination",
+      },
     });
   </script>
 </body>

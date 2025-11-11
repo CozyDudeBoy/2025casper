@@ -68,21 +68,10 @@ main{
   }
 
 
-  > #top3{
-    height: 1146px;
-    background-color: #456;
-  }
-  > #intro{
-    height: 923px;
-    background-color: aqua;
-  }
-  > #test_drive{
-    height: 923px;
-    background-color: navy;
-  }
+
   > #event{
-    height: 923px;
-    background-color: purple;
+    height: 650px;
+    background-color:#ccc;
   }
   > #buy{
     height: 923px;
@@ -155,6 +144,7 @@ main{
   // 2. 가장 많이 찾는 캐스퍼 top3
   #top3{
     text-align: center;
+    padding-bottom: 54px;
     >.p01{
       font-size: $t_size_m;
       line-height: 50px;
@@ -164,7 +154,7 @@ main{
   .top3{
     position: relative;
     margin-top: 50px;
-    padding: 20px 0px 50px 0px;
+    padding: 20px 0px 50px 0px !important;
     > .swiper-wrapper{
       width: 100%;
       height: 100%;
@@ -189,7 +179,7 @@ main{
         width: 400px;
         padding: $m_value 0px;
         transition: 0.8s;
-        transition-timing-function: cubic-bezier(0,1, 1.0);
+      transition-timing-function: cubic-bezier(0, 1, 1, 1);
         transform: scale(0.7);
       }
       .swiper-slide-active img{
@@ -261,6 +251,136 @@ main{
       #top3 .swiper-button-next, #top3 .swiper-button-prev{
         height: 10px;
       }
-#top3 .swiper-button-next::after, #top3 .swiper-button-next::before{
 
+
+// 3. 소개페이지////////////////////////////////////////////////
+#intro{
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+#intro > h2{
+  position: absolute;
+  top: -50px;
+  width: 100%;
+  z-index: 100;
+}
+.intro_title_left, .intro_title_right{
+  position: absolute;
+  z-index: 100;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 40px;
+}
+
+.intro_title_left{
+  top: 200px;
+  // left: 130px;
+  left: -330px;
+}
+.intro_title_right{
+  bottom: 200px;
+  // right: 150px;
+  right: -300px;
+  text-align: right;
+}
+#intro video{
+  width: 100%;
+
+}
+#intro .btn{
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+
+}
+// 4. 시승신청(체험)
+#test_drive{
+  text-align: center;
+  > .p01{
+    font-size: $t_size_ss;
+  }
+  > article{
+    width: 430px;
+    height: 280px;
+    border: 1px solid $line_color_g;
+    padding: 15px;
+    margin-top: 50px;
+    display: inline-block;
+    vertical-align:middle ;
+    > h3{
+      font-size: 24px;
+      padding-top: 20px;
+      font-weight: bold;
+      line-height: 34px;
+    }
+    > p{
+      padding: 20px 0px;
+      line-height: 22px;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+@mixin btn1{
+  padding: 10px 60px;
+  color: $txt_color2;
+  background-color: $txt_color3;
+  line-height: 30px;
+}
+
+.test_d_btn1{@include btn1;}
+.test_d_btn2{
+  display: block;
+  position: relative;
+  top: 20px;
+  color: $nav_color1;
+  font-weight: 450;
+}
+
+.test_d_p{
+  transform:  translateY(50px);
+}
+.test_drive_r .test_d_p{
+  transform: translateY(64px);
+}
+
+// 5. 이벤트 프로모션
+#event{
+  text-align: center;
+  > .p01{font-size: $t_size_ss;}
+}
+
+// 이벤트 슬라이드 서식
+
+.event{
+  margin-top: 80px;
+  width: 1200px;
+  > .swiper-wrapper{
+    width: 100%;
+    height: 100%;
+    padding-bottom: 50px;
+  }
+  >.swiper-slide{
+    height: 100%;
+  }
+  img{
+    width: 1200px;
+  }
+  .swiper-pagination-bullet{
+    width: 15px;
+    height: 15px !important;
+    margin: 0 5px !important;
+    opacity: 0.2;
+  }
+  .swiper-pagination-bullet-active{
+    animation: bullet_active 0.3s forwards
+  }
+}
+
+// 슬라이드 페이지네이션 애니메이션 키프레임
+@keyframes bullet_active{
+  0%{width: 15px;  background-color: #ccc; opacity: 0.2;}
+  100%{width: 100px; border-radius: 10px; background-color: $txt_color3; opacity: 1;}
 }
