@@ -15,6 +15,7 @@ $txt_color4:#3B8BAE;
 $txt_color5:#052B58;
 
 $line_color_g:#ccc;
+$bg_color_light_g:#ededed;
 
 // 글자 크기 제목, 본문 변수
 $t_size_s:12px;
@@ -24,6 +25,9 @@ $t_size_m:16px;
 $t_size_t1:22px;
 $t_size_t2:20px;
 $t_size_t3:34px;
+
+$ani_time:0.3s;
+$box_center:0 auto;
 
 // 기본 글꼴
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');

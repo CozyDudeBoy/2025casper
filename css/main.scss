@@ -1,5 +1,6 @@
 // @import 'common'; 얘는 구식
 @use 'common' as *;
+
 // main.scss
 
 $m_value:80px;
@@ -71,15 +72,15 @@ main{
 
   > #event{
     height: 650px;
-    background-color:#ccc;
+
   }
   > #buy{
-    height: 923px;
-    background-color: bisque;
+    height: 1150px;
+
   }
   > #customer{
-    height: 923px;
-    background-color: violet;
+  
+
   }
 }
 
@@ -383,4 +384,186 @@ main{
 @keyframes bullet_active{
   0%{width: 15px;  background-color: #ccc; opacity: 0.2;}
   100%{width: 100px; border-radius: 10px; background-color: $txt_color3; opacity: 1;}
+}
+
+
+// 6 구매하기 
+#buy{
+  text-align: center;
+  > .p01{
+    font-size: $t_size_m;
+    line-height: 50px;
+  }
+  h3{
+    font-size: $t_size_t2;
+    padding: 40px 0px 20px 0px;
+    font-weight: bold;
+  }
+  .t_color{
+    color: $txt_color4;
+  }
+  .buy_info_list{
+    display: grid;
+    width: 1200px;
+    margin: $box_center;
+    grid-template-columns: repeat(3,33.333333%);
+    >li{
+      padding-top:50px;
+      >img{
+        width: 80px;
+        padding: 15px 0px;
+      }
+      >h4{
+        font-size: 18px;
+        font-weight: bold;
+      }
+      >.p02{
+        line-height: 20px;
+      }
+    }
+    >li:last-child{
+      // 마지막 li는 영상 컨텐츠라서 병합을 해야 함
+      grid-area: 3/1/4/4;
+      iframe{
+        width: 70%;
+        height:430px;
+      }
+    }
+  }
+  
+}
+
+// 7 고객지원
+#customer{
+  background: $bg_color_light_g;
+  >article{
+    padding: 24px 0px;
+    width: 1200px;
+    height: 300px;
+    margin: 15px auto;
+    background: $txt_color2;
+    
+    >h3{
+      font-size: 18px;
+      text-align: center;
+      padding: 60px 0px 20px 0px;
+      font-weight: bold;
+    }
+    .ars_left{
+      border-right:1px solid $line_color_g
+    }
+    .ars_left, .ars_right{
+      width: 50%;
+      padding: 20px 30px;
+      box-sizing: border-box;
+      float: left;
+      display: flex;
+      justify-content: space-around;
+      > p{
+        display: flex;
+        flex-direction: column; //세로방향 배치
+        line-height: 30px;
+        text-align: center;
+        align-items: center;
+        >a{
+          color:$nav_color2;
+        }
+      }
+      >dl{line-height: 24px;}
+      >dl > dt{font-weight: bold;}
+
+    }
+    strong{
+      font-weight: 500px;
+      font-size: $t_size_m;
+    }
+  }
+}
+//아이콘 배경 서식
+.car_icon, .member_icon{
+  background: url('../images/bg-support-ars.png');
+  display: inline-block;
+  height: 46px;
+  text-indent: -9999px;
+  margin-top: 30px;
+}
+
+// 아이콘 크기 각각 설정 ,크기 지정함
+.car_icon{width: 75px;}
+.member_icon{
+  width: 60px;
+  background-position: -90px 0px;
+  transform: translateY(-30px);
+}
+
+//float 속성 해제
+.clearfix{
+  clear: both;//float 속성 해제
+  content: '';
+  display: block;
+}
+
+// 기타 상담
+.cs_etc{
+  display: flex;
+  justify-content: space-between;
+  width: 1200px;
+  margin: 15px auto;
+  >li{
+    width: 280px;
+    height: 270px;
+    background-color: $txt_color2;
+    position: relative;
+    
+    >h3{
+      font-size: 18px;
+      padding: 30px 35px;
+    }
+    >p{
+      line-height: 24px;
+      padding-left: 35px;
+    }
+    >p:first-of-type{
+      font-weight: bold;
+    }
+    >a{
+      margin: 0 auto;
+      width: 120px;
+      line-height: 35px;
+      position: absolute;
+      left: 80px;
+      bottom: 20px;
+      text-align: center;
+      background-color: $txt_color5;
+      color: $txt_color2;
+    }
+  }
+}
+
+.app{
+  position: absolute;
+  left: 40px;
+  bottom: 15px;
+  text-align: center;
+  >a:first-child{
+    display: block;
+    
+  }
+  >a{
+    font-size: $t_size_ss;
+    color: $nav_color2;
+  }
+}
+
+// 랜덤 배너 이미지
+.r_banner{
+  background-color: #000;
+  width: 1200px;
+  height: 300px;
+  margin: 15px auto;
+
+  > img{
+    width: 100%;
+    height: 100%;
+  }
 }

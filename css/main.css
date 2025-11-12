@@ -77,17 +77,10 @@ main > #movie > #next_btn {
 }
 main > #event {
   height: 650px;
-  background-color: #ccc;
 }
 main > #buy {
-  height: 923px;
-  background-color: bisque;
+  height: 1150px;
 }
-main > #customer {
-  height: 923px;
-  background-color: violet;
-}
-
 .modal {
   position: fixed;
   top: 0px;
@@ -371,4 +364,178 @@ main > #customer {
     background-color: #225499;
     opacity: 1;
   }
+}
+#buy {
+  text-align: center;
+}
+#buy > .p01 {
+  font-size: 16px;
+  line-height: 50px;
+}
+#buy h3 {
+  font-size: 20px;
+  padding: 40px 0px 20px 0px;
+  font-weight: bold;
+}
+#buy .t_color {
+  color: #3B8BAE;
+}
+#buy .buy_info_list {
+  display: grid;
+  width: 1200px;
+  margin: 0 auto;
+  grid-template-columns: repeat(3, 33.333333%);
+}
+#buy .buy_info_list > li {
+  padding-top: 50px;
+}
+#buy .buy_info_list > li > img {
+  width: 80px;
+  padding: 15px 0px;
+}
+#buy .buy_info_list > li > h4 {
+  font-size: 18px;
+  font-weight: bold;
+}
+#buy .buy_info_list > li > .p02 {
+  line-height: 20px;
+}
+#buy .buy_info_list > li:last-child {
+  grid-area: 3/1/4/4;
+}
+#buy .buy_info_list > li:last-child iframe {
+  width: 70%;
+  height: 430px;
+}
+
+#customer {
+  background: #ededed;
+}
+#customer > article {
+  padding: 24px 0px;
+  width: 1200px;
+  height: 300px;
+  margin: 15px auto;
+  background: #fff;
+}
+#customer > article > h3 {
+  font-size: 18px;
+  text-align: center;
+  padding: 60px 0px 20px 0px;
+  font-weight: bold;
+}
+#customer > article .ars_left {
+  border-right: 1px solid #ccc;
+}
+#customer > article .ars_left, #customer > article .ars_right {
+  width: 50%;
+  padding: 20px 30px;
+  box-sizing: border-box;
+  float: left;
+  display: flex;
+  justify-content: space-around;
+}
+#customer > article .ars_left > p, #customer > article .ars_right > p {
+  display: flex;
+  flex-direction: column;
+  line-height: 30px;
+  text-align: center;
+  align-items: center;
+}
+#customer > article .ars_left > p > a, #customer > article .ars_right > p > a {
+  color: #006EFF;
+}
+#customer > article .ars_left > dl, #customer > article .ars_right > dl {
+  line-height: 24px;
+}
+#customer > article .ars_left > dl > dt, #customer > article .ars_right > dl > dt {
+  font-weight: bold;
+}
+#customer > article strong {
+  font-weight: 500px;
+  font-size: 16px;
+}
+
+.car_icon, .member_icon {
+  background: url("../images/bg-support-ars.png");
+  display: inline-block;
+  height: 46px;
+  text-indent: -9999px;
+  margin-top: 30px;
+}
+
+.car_icon {
+  width: 75px;
+}
+
+.member_icon {
+  width: 60px;
+  background-position: -90px 0px;
+  transform: translateY(-30px);
+}
+
+.clearfix {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.cs_etc {
+  display: flex;
+  justify-content: space-between;
+  width: 1200px;
+  margin: 15px auto;
+}
+.cs_etc > li {
+  width: 280px;
+  height: 270px;
+  background-color: #fff;
+  position: relative;
+}
+.cs_etc > li > h3 {
+  font-size: 18px;
+  padding: 30px 35px;
+}
+.cs_etc > li > p {
+  line-height: 24px;
+  padding-left: 35px;
+}
+.cs_etc > li > p:first-of-type {
+  font-weight: bold;
+}
+.cs_etc > li > a {
+  margin: 0 auto;
+  width: 120px;
+  line-height: 35px;
+  position: absolute;
+  left: 80px;
+  bottom: 20px;
+  text-align: center;
+  background-color: #052B58;
+  color: #fff;
+}
+
+.app {
+  position: absolute;
+  left: 40px;
+  bottom: 15px;
+  text-align: center;
+}
+.app > a:first-child {
+  display: block;
+}
+.app > a {
+  font-size: 14px;
+  color: #006EFF;
+}
+
+.r_banner {
+  background-color: #000;
+  width: 1200px;
+  height: 300px;
+  margin: 15px auto;
+}
+.r_banner > img {
+  width: 100%;
+  height: 100%;
 }/*# sourceMappingURL=main.css.map */
