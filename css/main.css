@@ -64,7 +64,7 @@ main > #movie > .m_info a:first-of-type {
 }
 main > #movie > #next_btn {
   display: inline-block;
-  text-indent: -9999px;
+  color: rgba(0, 0, 0, 0);
   position: absolute;
   bottom: 40px;
   left: 50%;
@@ -81,6 +81,7 @@ main > #event {
 main > #buy {
   height: 1150px;
 }
+
 .modal {
   position: fixed;
   top: 0px;

@@ -41,7 +41,7 @@ header > .nav_icon {
   position: absolute;
   top: 24px;
 }
-header .nav_icon span:last-child {
+header .nav_icon > span:last-child {
   display: none;
 }
 header > .nav_icon span.fas {

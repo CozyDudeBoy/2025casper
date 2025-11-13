@@ -13,7 +13,7 @@
   <!-- 메인 서식 -->
   <link rel="stylesheet" href="./css/main.css" type="text/css">
   <!-- 폰트어썸 cdn -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <!-- 제이쿼리 cdn -->
   <script src="https://code.jquery.com/jquery-latest.min.js"></script>
   <!-- 제이쿼리 쿠키 -->
@@ -34,7 +34,7 @@
       </a>
     </h1>
 
-    <nav>
+    <nav aria-label="메인메뉴">
       <ul class="gnb">
         <li><a href="#intro" title="소개" class="arctic_scroll">소개</a></li>
         <li><a href="#test_drive" title="체험" class="arctic_scroll">체험</a></li>
@@ -46,10 +46,12 @@
 
     <!-- 오른쪽 끝에 배치될 아이콘 2개 -->
     <div class="nav_icon icon1">
-      <span class="fas fa-user"></span>
-      <span>
-      로그인
-      </span>
+      <a href="../login.php" title="로그인 페이지로 이동하기">
+        <span class="fas fa-user"></span>
+      </a>
+        <span>
+          로그인
+        </span>
     </div>
     <div class="nav_icon icon2">
       <span class="fas fa-bell"></span>
@@ -59,13 +61,13 @@
     </div>
   </header>
   <!-- 오른쪽 고정 내비게이션 (헤더안에 있으면 사이드 내비 영역 오버시에도 헤더 스크립트 작동)-->
-  <nav id="m_nav">
+  <nav id="m_nav" aria-label="우측 고정메뉴">
     <ul>
-      <li><span class="num">1</span><a href="#intro" title="소개" class="artic_scroll">소개</a></li>
-      <li><span class="num">2</span><a href="#test_drive" title="체험" class="artic_scroll">체험</a></li>
-      <li><span class="num">3</span><a href="#event" title="이벤트" class="artic_scroll">이벤트</a></li>
-      <li><span class="num">4</span><a href="#buy" title="구매" class="artic_scroll">구매</a></li>
-      <li><span class="num">5</span><a href="#customer" title="고객지원" class="artic_scroll">고객지원</a></li>
+      <li><span class="num">1</span><a href="#intro" title="소개" class="arctic_scroll">소개</a></li>
+      <li><span class="num">2</span><a href="#test_drive" title="체험" class="arctic_scroll">체험</a></li>
+      <li><span class="num">3</span><a href="#event" title="이벤트" class="arctic_scroll">이벤트</a></li>
+      <li><span class="num">4</span><a href="#buy" title="구매" class="arctic_scroll">구매</a></li>
+      <li><span class="num">5</span><a href="#customer" title="고객지원" class="arctic_scroll">고객지원</a></li>
     </ul>
   </nav>
 
@@ -185,27 +187,27 @@
       <div class="swiper event">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <a href="#" title="이벤트1">
+            <a href="event.html" title="이벤트1">
               <img src="./images/event01.png" alt="이벤트1">
             </a>
           </div>
           <div class="swiper-slide">
-            <a href="#" title="이벤트2">
+            <a href="event.html" title="이벤트2">
               <img src="./images/event02.jpg" alt="이벤트2">
             </a>
           </div>
           <div class="swiper-slide">
-            <a href="#" title="이벤트3">
+            <a href="event.html" title="이벤트3">
               <img src="./images/event03.jpg" alt="이벤트3">
             </a>
           </div>
           <div class="swiper-slide">
-            <a href="#" title="이벤트4">
+            <a href="event.html" title="이벤트4">
               <img src="./images/event04.jpg" alt="이벤트4">
             </a>
           </div>
           <div class="swiper-slide">
-            <a href="#" title="이벤트5">
+            <a href="event.html" title="이벤트5">
               <img src="./images/event05.jpg" alt="이벤트5">
             </a>
           </div>
@@ -254,7 +256,7 @@
             <p class="p02">밤 10시까지 캐스퍼 고객센터(080-500-6000)를 통해 문의사항을 해결할 수 있고, 현대자동차의 직영서비스센터와 블루핸즈도 이용할 수 있습니다.</p>
           </li>
           <li>
-            <iframe width="100%" src="https://www.youtube.com/embed/MQSGzDRejUM?si=mZDt0GdxmrzUScB9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="100%" src="https://www.youtube.com/embed/MQSGzDRejUM?si=mZDt0GdxmrzUScB9" title="캐스퍼 구매 안내" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </li>
         </ul>
       </article>
@@ -268,7 +270,7 @@
         <div class="ars_left">
           <p>
             <strong>캐스퍼 구매 상담</strong>
-            <a href="#" title="ARS 이용방법">ARS 이용방법 &gt;</a>
+            <a href="ars.html" title="ARS 이용방법">ARS 이용방법 &gt;</a>
             <span class="car_icon">자동차</span>
           </p>
           <dl>
@@ -281,8 +283,8 @@
         <div class="ars_right">
           <p>
             캐스퍼 정비/ 멤버쉽 상담
-            <a href="#" title="누르는 이용방법">누르는 ARS 이용방법 &gt;</a>
-            <a href="#" title="보이는 이용방법">보이는 ARS 이용방법 &gt;</a>
+            <a href="ars.html" title="누르는 이용방법">누르는 ARS 이용방법 &gt;</a>
+            <a href="ars.html" title="보이는 이용방법">보이는 ARS 이용방법 &gt;</a>
             <span class="member_icon">멤버쉽</span>
           </p>
           <dl>
@@ -377,8 +379,6 @@
       });
   -->
   <!-- 제이쿼리 -->
-  <!-- 제이쿼리 쿠리 라이브러리 연결 -->
-  <script src="./script/jquery.cookie.js"></script>
   <!-- 스와이퍼 슬라이드 js -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 

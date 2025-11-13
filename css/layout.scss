@@ -21,10 +21,10 @@ header{
     position: absolute;
     top: 24px;
   }
-  .nav_icon span:last-child{
+  .nav_icon > span:last-child{
     display: none;
   }
-  >.nav_icon span.fas{
+  >.nav_icon  span.fas{
     font-size: $t_size_t1;
     color: $txt_color2;
     cursor: pointer;
